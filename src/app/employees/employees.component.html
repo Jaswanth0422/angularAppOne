@@ -1,1 +1,27 @@
-<p>employees works!</p>
+<!-- <p>employees works!</p> -->
+<div>
+  <div class="table-caption">
+  <caption >Employee Details List</caption>
+    <button [routerLink]="['/createEmployee']">Create New Employee</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Title</th>
+        <th>Employee UserName</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <th>{{employee.id}}</th>
+        <th>{{employee.title}}</th>
+        <th>{{employee.userid}}</th>
+        <th><button [routerLink]="['/editEmployee']">Edit</button></th>
+        <th><button>Delete</button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
