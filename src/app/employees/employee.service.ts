@@ -9,6 +9,10 @@ export class EmployeeService {
   editEmployeeObj: AngularFireObject<any>;
   constructor(private firebase:AngularFireDatabase) { }
 
+  GetEmployee(id: string) {
+    this.editEmployeeObj = this.firebase.object('employees/' + id);
+    return this.editEmployeeObj;
+  }
   getEmployeesList(){
     this.employeeList=this.firebase.list('/employees');
     console.log('in service',this.employeeList)

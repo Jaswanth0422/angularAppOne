@@ -1,1 +1,31 @@
 <p>employee-edit works!</p>
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+  <mat-form-field appearance="outline" >
+    <mat-label>Employee id</mat-label>
+    <input matInput type="text"  formControlName="employeeId">
+    <!-- <mat-error *ngIf="employeeId.invalid">{{getErrorMessage()}}</mat-error> -->
+    <mat-error *ngIf="editFormError('employeeId', 'required')">ID is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeId', 'minlength')">ID should be atleast 2 digits</mat-error>
+    <mat-error *ngIf="editFormError('employeeId', 'pattern')">ID is Numeric only</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" >
+    <mat-label>Employee Title</mat-label>
+    <input matInput type="text"  formControlName="employeeTitle">
+    <mat-error *ngIf="editFormError('employeeTitle', 'required')">Title is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeTitle', 'minlength')">Title should be atleast 2 characters</mat-error>
+
+  </mat-form-field><mat-form-field appearance="outline" >
+    <mat-label>Employee UserName</mat-label>
+    <input matInput type="text"  formControlName="employeeUsername">
+    <mat-error *ngIf="editFormError('employeeUsername', 'required')">Username is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeUsername', 'minlength')">Username should be atleast 2 characters</mat-error>
+
+  </mat-form-field>
+  <div class="row-buttons">
+  <button type="button" routerLink="/employees">Cancel</button>
+  <button [disabled]="!editForm.valid">Save</button>
+  </div>
+  </div>
+</form>
+

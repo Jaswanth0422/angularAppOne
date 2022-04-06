@@ -2,7 +2,7 @@
 <div>
   <div class="table-caption">
   <caption >Employee Details List</caption>
-    <button [routerLink]="['/createEmployee']">Create New Employee</button>
+    <button [routerLink]="['createEmployee']">Create New Employee</button>
   </div>
   <table>
     <thead>
@@ -19,9 +19,10 @@
         <th>{{employee.id}}</th>
         <th>{{employee.title}}</th>
         <th>{{employee.userid}}</th>
-        <th><button [routerLink]="['/editEmployee']">Edit</button></th>
+        <th><button routerLink="editEmployee/{{employee.$key}}">Edit</button></th>
         <th><button>Delete</button></th>
       </tr>
     </tbody>
   </table>
 </div>
+<router-outlet></router-outlet>

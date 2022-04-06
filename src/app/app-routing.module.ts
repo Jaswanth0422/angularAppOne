@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeesComponent } from './employees/employees.component';
+// import { EmployeesModule } from './employees/employees.module';
+// import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
-  { path: 'employees', component: EmployeesComponent }
+  { path: 'employees', loadChildren: () => import('./employees/employees.module').then((m) => m.EmployeesModule) },
+  // { path: 'employees', component: EmployeesComponent }
 ];
 
 @NgModule({
