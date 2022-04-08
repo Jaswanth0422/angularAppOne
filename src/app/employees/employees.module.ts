@@ -9,6 +9,8 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgSelectModule } from '@ng-select/ng-select';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     EmployeesComponent,
@@ -21,7 +23,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EmployeesRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgSelectModule,
+    MatCardModule
   ]
 })
 export class EmployeesModule { }

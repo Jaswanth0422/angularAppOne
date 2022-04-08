@@ -1,3 +1,6 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@ng-select/ng-select/themes/material.theme.css';
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -27,4 +30,7 @@ button[disabled]{
 .row-buttons{
   display: flex;
   justify-content: end;
+}
+.card-container{
+  max-width: 400px;
 }

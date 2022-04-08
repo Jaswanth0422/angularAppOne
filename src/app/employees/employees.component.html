@@ -10,6 +10,8 @@
         <th>Employee Id</th>
         <th>Employee Title</th>
         <th>Employee UserName</th>
+        <th>Employee Department</th>
+        <th>Employee Professional Skills</th>
         <th></th>
         <th></th>
       </tr>
@@ -19,10 +21,12 @@
         <th>{{employee.id}}</th>
         <th>{{employee.title}}</th>
         <th>{{employee.userid}}</th>
+        <th>{{employee.department}}</th>
+        <th>{{employee.professionalSkills}}</th>
         <th><button routerLink="editEmployee/{{employee.$key}}">Edit</button></th>
-        <th><button>Delete</button></th>
+        <th><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
       </tr>
     </tbody>
   </table>
 </div>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
