@@ -1,1 +1,36 @@
-<p>employees works!</p>
+<!-- <p>employees works!</p> -->
+<div>
+  <div class="table-caption">
+  <caption >Employee Details List</caption>
+    <button [routerLink]="['createEmployee']">Create New Employee</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Title</th>
+        <th>Employee UserName</th>
+        <th>Employee Department</th>
+        <th>Employee Professional Skills</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <th>{{employee.id}}</th>
+        <th>{{employee.title}}</th>
+        <th>{{employee.userid}}</th>
+        <th>{{employee.department}}</th>
+        <th>{{employee.professionalSkills}}</th>
+        <th><button routerLink="editEmployee/{{employee.$key}}">Edit</button></th>
+        <th><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="showRemoveModal">
+<app-remove-employee-modal>
+</app-remove-employee-modal>
+</div>
+<!-- <router-outlet></router-outlet> -->

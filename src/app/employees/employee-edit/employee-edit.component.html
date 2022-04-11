@@ -1,1 +1,66 @@
-<p>employee-edit works!</p>
+<!-- <p>employee-edit works!</p> -->
+<mat-card class="card-container">
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+  <mat-form-field appearance="outline" >
+    <mat-label>Employee id</mat-label>
+    <input matInput type="text"  formControlName="employeeId">
+    <!-- <mat-error *ngIf="employeeId.invalid">{{getErrorMessage()}}</mat-error> -->
+    <mat-error *ngIf="editFormError('employeeId', 'required')">ID is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeId', 'minlength')">ID should be atleast 2 digits</mat-error>
+    <mat-error *ngIf="editFormError('employeeId', 'pattern')">ID is Numeric only</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline" >
+    <mat-label>Employee Title</mat-label>
+    <input matInput type="text"  formControlName="employeeTitle">
+    <mat-error *ngIf="editFormError('employeeTitle', 'required')">Title is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeTitle', 'minlength')">Title should be atleast 2 characters</mat-error>
+
+  </mat-form-field><mat-form-field appearance="outline" >
+    <mat-label>Employee UserName</mat-label>
+    <input matInput type="text"  formControlName="employeeUsername">
+    <mat-error *ngIf="editFormError('employeeUsername', 'required')">Username is required</mat-error>
+    <mat-error *ngIf="editFormError('employeeUsername', 'minlength')">Username should be atleast 2 characters</mat-error>
+
+  </mat-form-field>
+  <ng-select appearance="outline" #agreeSelect [items]="departments"
+               bindLabel="name"
+               bindValue="id"
+               placeholder="Select Department"
+              formControlName="employeeDepartment"
+               style="font-family: roboto"
+               >
+
+</ng-select>
+<span *ngIf="editForm.value.employeeDepartment&&editForm.value.employeeDepartment===5">
+  <ng-select appearance="outline" #agreeSelect [items]="professionalSkills"
+               bindLabel="name"
+               bindValue="name"
+               placeholder="Select Professional Skills"
+              formControlName="employeeProfessionalSkills"
+               style="font-family: roboto"
+               [multiple]="true"
+               >
+               <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                <div *ngIf="editForm.value.employeeProfessionalSkills.length === 1" class="ng-values-list">
+                  <div class="ng-value" *ngFor="let item of editForm.value.employeeProfessionalSkills | slice:0:1">
+                    <span class="ng-value-label">{{item}}</span>
+                    <span class="ng-value-icon right" (click)="clear(item)">×</span>
+                  </div>
+                </div>
+                <div *ngIf="editForm.value.employeeProfessionalSkills.length > 1" class="ng-summary-list">
+                  <div class="ng-value">
+                    <span class="ng-value-label">{{ editForm.value.employeeProfessionalSkills.length }} Selected</span>
+                  </div>
+                </div>
+              </ng-template>
+               </ng-select>
+</span>
+  <div class="row-buttons">
+  <button type="button" routerLink="/employees">Cancel</button>
+  <button [disabled]="!editForm.valid">Save</button>
+  </div>
+  </div>
+</form>
+</mat-card>
+
