@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import {Employee,departments,professionalSkills} from './employee';
+import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-employee-modal.component';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -10,6 +11,7 @@ import {Employee,departments,professionalSkills} from './employee';
 export class EmployeesComponent implements OnInit {
   employeeList: Employee[] | [] = [];
   constructor(private employeeService:EmployeeService) { }
+  showRemoveModal=false
 
   ngOnInit(): void {
     this.employeeService.getEmployeesList().subscribe(data=>{
@@ -61,6 +63,7 @@ export class EmployeesComponent implements OnInit {
     });
   }
   deleteEmployee(employeeKey){
+    // this.showRemoveModal=true;
     this.employeeService.removeEmployee(employeeKey);
   }
 

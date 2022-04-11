@@ -34,4 +34,9 @@ button[disabled]{
 .card-container{
   max-width: 400px;
 }
-
+/* .ng-placeholder:nth-child(2){
+  margin-top: 20px;
+} */
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder{
+  margin-top: 18px;
+}

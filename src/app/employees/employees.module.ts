@@ -11,12 +11,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatCardModule} from '@angular/material/card';
+import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-employee-modal.component';
 @NgModule({
   declarations: [
     EmployeesComponent,
     EmployeeListComponent,
     EmployeeCreateComponent,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    RemoveEmployeeModalComponent
   ],
   imports: [
     CommonModule,
