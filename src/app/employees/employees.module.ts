@@ -12,13 +12,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatCardModule} from '@angular/material/card';
 import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-employee-modal.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     EmployeesComponent,
     EmployeeListComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
-    RemoveEmployeeModalComponent
+    RemoveEmployeeModalComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +37,15 @@ import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-emp
     MatInputModule,
     MatFormFieldModule,
     NgSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    FlexLayoutModule,
+    FontAwesomeModule,
+    MatListModule,
+    MatButtonModule
   ]
 })
 export class EmployeesModule { }

@@ -52,3 +52,6 @@ table thead {
 tbody tr:hover {
   background-color: #B0E2FF;
 }
+.show-modal{
+  opacity: 0.5;
+}

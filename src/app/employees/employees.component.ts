@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import {Employee,departments,professionalSkills} from './employee';
 import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-employee-modal.component';
+import { faPenToSquare,faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -11,7 +12,9 @@ import { RemoveEmployeeModalComponent } from './remove-employee-modal/remove-emp
 export class EmployeesComponent implements OnInit {
   employeeList: Employee[] | [] = [];
   constructor(private employeeService:EmployeeService) { }
-  showRemoveModal=false
+  showRemoveModal=false;
+  faPenToSquare = faPenToSquare;
+  faTrash=faTrash;
 
   ngOnInit(): void {
     this.employeeService.getEmployeesList().subscribe(data=>{
@@ -63,8 +66,8 @@ export class EmployeesComponent implements OnInit {
     });
   }
   deleteEmployee(employeeKey){
-    // this.showRemoveModal=true;
-    this.employeeService.removeEmployee(employeeKey);
+    this.showRemoveModal=true;
+    // this.employeeService.removeEmployee(employeeKey);
   }
 
 }

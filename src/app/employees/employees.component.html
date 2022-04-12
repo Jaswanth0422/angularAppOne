@@ -1,5 +1,5 @@
 <!-- <p>employees works!</p> -->
-<div>
+<div [ngClass]="showRemoveModal? 'show-modal' : 'modal-close'">
   <div class="table-caption">
   <caption >Employee Details List</caption>
     <button [routerLink]="['createEmployee']">Create New Employee</button>
@@ -23,14 +23,14 @@
         <th>{{employee.userid}}</th>
         <th>{{employee.department}}</th>
         <th>{{employee.professionalSkills}}</th>
-        <th><button routerLink="editEmployee/{{employee.$key}}">Edit</button></th>
-        <th><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
+        <th><fa-icon [icon]="faPenToSquare"></fa-icon><button routerLink="editEmployee/{{employee.$key}}">Edit</button></th>
+        <th><fa-icon [icon]="faTrash"></fa-icon><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
       </tr>
     </tbody>
   </table>
 </div>
 <div *ngIf="showRemoveModal">
-<app-remove-employee-modal>
+<app-remove-employee-modal >
 </app-remove-employee-modal>
 </div>
 <!-- <router-outlet></router-outlet> -->
