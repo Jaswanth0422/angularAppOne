@@ -1,5 +1,5 @@
 <!-- <p>employee-list works!</p> -->
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="toggleSideBar()">
       <mat-icon>menu</mat-icon>
@@ -42,4 +42,43 @@
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->
+
+
+
+<!-- <p>employees works!</p> -->
+<div [ngClass]="showRemoveModal? 'show-modal' : 'modal-close'">
+  <div class="table-caption">
+  <caption >Employee Details List</caption>
+    <button [routerLink]="['/employees/createEmployee']">Create New Employee</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Title</th>
+        <th>Employee UserName</th>
+        <th>Employee Department</th>
+        <th>Employee Professional Skills</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <th>{{employee.id}}</th>
+        <th>{{employee.title}}</th>
+        <th>{{employee.userid}}</th>
+        <th>{{employee.department}}</th>
+        <th>{{employee.professionalSkills}}</th>
+        <th><fa-icon [icon]="faPenToSquare"></fa-icon><button routerLink="/employees/editEmployee/{{employee.$key}}">Edit</button></th>
+        <th><fa-icon [icon]="faTrash"></fa-icon><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="employeeList.length"><app-charts [employeeData]="employeeList"></app-charts></div>
+</div>
+<div *ngIf="showRemoveModal">
+<app-remove-employee-modal [employeeKey]="removeEmployeeKey" (cancelEvent)="closeModal($event)">
+</app-remove-employee-modal>
+</div>

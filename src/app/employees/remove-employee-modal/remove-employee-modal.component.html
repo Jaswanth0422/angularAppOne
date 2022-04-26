@@ -3,8 +3,8 @@
   <mat-card class="modal">
   <div>
   <p>Are you sure you want to remove Employee?</p>
-  <button mat-button color="primary">Cancel</button>
-  <button mat-button color="primary">Remove</button>
+  <button mat-button color="primary" (click)="cancelHandler()">Cancel</button>
+  <button mat-button color="primary" (click)="removeEmployee()">Remove</button>
   </div>
 </mat-card>
 </div>

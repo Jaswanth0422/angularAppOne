@@ -8,10 +8,12 @@ import { EmployeesComponent } from './employees.component';
 const routes: Routes = [
 
   {
-    path: '', component: EmployeeListComponent,
+    path: '', component: EmployeesComponent,
     children: [
-      { path: 'employees',component: EmployeesComponent },
-      { path: 'createEmployee',component: EmployeeCreateComponent },
+      {
+        path: 'listEmployees', component: EmployeeListComponent,
+      },
+      { path: 'createEmployee', component: EmployeeCreateComponent },
       { path: 'editEmployee/:id', component: EmployeeEditComponent },
     ]
   }

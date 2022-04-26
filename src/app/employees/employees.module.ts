@@ -21,6 +21,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ChartsComponent } from './charts/charts.component';
 @NgModule({
   declarations: [
     EmployeesComponent,
@@ -28,11 +30,13 @@ import {MatButtonModule} from '@angular/material/button';
     EmployeeCreateComponent,
     EmployeeEditComponent,
     RemoveEmployeeModalComponent,
-    SidebarComponent
+    SidebarComponent,
+    ChartsComponent
   ],
   imports: [
     CommonModule,
     EmployeesRoutingModule,
+    // MyRouteRoutes,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
@@ -45,7 +49,8 @@ import {MatButtonModule} from '@angular/material/button';
     FlexLayoutModule,
     FontAwesomeModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    HighchartsChartModule
   ]
 })
 export class EmployeesModule { }

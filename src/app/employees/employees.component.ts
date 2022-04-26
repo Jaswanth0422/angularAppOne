@@ -10,6 +10,8 @@ import { faPenToSquare,faTrash } from '@fortawesome/free-solid-svg-icons';
   providers:[EmployeeService]
 })
 export class EmployeesComponent implements OnInit {
+  sidebarOpened:boolean=false
+
   employeeList: Employee[] | [] = [];
   constructor(private employeeService:EmployeeService) { }
   showRemoveModal=false;
@@ -68,6 +70,11 @@ export class EmployeesComponent implements OnInit {
   deleteEmployee(employeeKey){
     this.showRemoveModal=true;
     // this.employeeService.removeEmployee(employeeKey);
+  }
+  toggleSideBar() {
+    console.log('clicked');
+
+    this.sidebarOpened=!this.sidebarOpened;
   }
 
 }

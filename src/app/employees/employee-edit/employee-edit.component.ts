@@ -111,7 +111,7 @@ export class EmployeeEditComponent implements OnInit {
     editedData.department=this.editForm.value.employeeDepartment;
     editedData.professionalSkills=this.editForm.value.employeeProfessionalSkills;
    const result= this.employeeService.editEmployee(editedData);
-   await result==='Employee details edited successfully'?this.router.navigate(['/employees']):''
+   await result==='Employee details edited successfully'?this.router.navigate(['/employees/listEmployees']):''
   }
 
 }

@@ -66,7 +66,7 @@ export class EmployeeCreateComponent implements OnInit {
       console.log('after save clicked',employee)
       const result=this.employeeService.createEmployee(employee)
 
-    await result==='successfully created employee'?this.router.navigate(['/employees']):''
+    await result==='successfully created employee'?this.router.navigate(['/employees/listEmployees']):''
   }
   departmentChange($event){
     console.log('in ng select',$event);
