@@ -62,8 +62,8 @@
 
 <!-- </mat-form-field> -->
   <div class="row-buttons">
-  <button type="button" routerLink="/employees/listEmployees">Cancel</button>
-  <button [disabled]="! createForm.valid">Save</button>
+  <button type="button" routerLink="/employees/listEmployees" [mat-dialog-close]="true">Cancel</button>
+  <button [disabled]="! createForm.valid" >Save</button>
   </div>
   </div>
 </form>

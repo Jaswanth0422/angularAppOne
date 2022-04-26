@@ -23,6 +23,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartsComponent } from './charts/charts.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 @NgModule({
   declarations: [
     EmployeesComponent,
@@ -31,12 +33,14 @@ import { ChartsComponent } from './charts/charts.component';
     EmployeeEditComponent,
     RemoveEmployeeModalComponent,
     SidebarComponent,
-    ChartsComponent
+    ChartsComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
     EmployeesRoutingModule,
     // MyRouteRoutes,
+    MatDialogModule,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
@@ -50,7 +54,8 @@ import { ChartsComponent } from './charts/charts.component';
     FontAwesomeModule,
     MatListModule,
     MatButtonModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+
   ]
 })
 export class EmployeesModule { }

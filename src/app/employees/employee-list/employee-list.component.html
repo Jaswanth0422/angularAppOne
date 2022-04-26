@@ -1,56 +1,14 @@
-<!-- <p>employee-list works!</p> -->
-<!-- <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button (click)="toggleSideBar()">
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span> APP LOGO </span>
-
-    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-      <ul fxLayout="row" fxLayoutGap="20px">
-        <li>
-          <button mat-icon-button>
-            <mat-icon>settings</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-icon-button>
-            <mat-icon>help_outline</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>person_outline</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              Sign out
-            </button>
-          </mat-menu>
-
-        </li>
-      </ul>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<mat-drawer-container>
-  <mat-drawer mode="side" [opened]="sidebarOpened">
-    <app-sidebar></app-sidebar>
-  </mat-drawer>
-  <mat-drawer-content>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container> -->
-
-
-
-<!-- <p>employees works!</p> -->
-<div [ngClass]="showRemoveModal? 'show-modal' : 'modal-close'">
+<div [ngClass]="showRemoveModal ? 'show-modal' : 'modal-close'">
   <div class="table-caption">
-  <caption >Employee Details List</caption>
-    <button [routerLink]="['/employees/createEmployee']">Create New Employee</button>
+    <caption>
+      Employee Details List
+    </caption>
+    <div>
+    <button [routerLink]="['/employees/createEmployee']">
+      Create New Employee
+    </button>
+    <button (click)="openCreateModal()"><fa-icon [icon]="faAddressCard"></fa-icon></button>
+    </div>
   </div>
   <table>
     <thead>
@@ -66,19 +24,32 @@
     </thead>
     <tbody>
       <tr *ngFor="let employee of employeeList">
-        <th>{{employee.id}}</th>
-        <th>{{employee.title}}</th>
-        <th>{{employee.userid}}</th>
-        <th>{{employee.department}}</th>
-        <th>{{employee.professionalSkills}}</th>
-        <th><fa-icon [icon]="faPenToSquare"></fa-icon><button routerLink="/employees/editEmployee/{{employee.$key}}">Edit</button></th>
-        <th><fa-icon [icon]="faTrash"></fa-icon><button (click)="deleteEmployee(employee.$key)">Delete</button></th>
+        <th>{{ employee.id }}</th>
+        <th>{{ employee.title }}</th>
+        <th>{{ employee.userid }}</th>
+        <th>{{ employee.department }}</th>
+        <th>{{ employee.professionalSkills }}</th>
+        <th>
+          <button routerLink="/employees/editEmployee/{{ employee.$key }}">
+            <fa-icon [icon]="faPenToSquare"></fa-icon>
+          </button>
+        </th>
+        <th>
+          <button (click)="deleteEmployee(employee.$key)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </th>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="employeeList.length"><app-charts [employeeData]="employeeList"></app-charts></div>
+  <div *ngIf="employeeList.length">
+    <app-charts [employeeData]="employeeList"></app-charts>
+  </div>
 </div>
 <div *ngIf="showRemoveModal">
-<app-remove-employee-modal [employeeKey]="removeEmployeeKey" (cancelEvent)="closeModal($event)">
-</app-remove-employee-modal>
+  <app-remove-employee-modal
+    [employeeKey]="removeEmployeeKey"
+    (cancelEvent)="closeModal($event)"
+  >
+  </app-remove-employee-modal>
 </div>
