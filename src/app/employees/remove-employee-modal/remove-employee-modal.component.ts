@@ -15,6 +15,7 @@ export class RemoveEmployeeModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
   removeEmployee() {
     this.employeeService.removeEmployee(this.employeeKey);

@@ -14,11 +14,13 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
+// import { ResumePageComponent } from './newfeatures/newPage/resume-page/resume-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    // ResumePageComponent,
     // EmployeesComponent
   ],
   imports: [

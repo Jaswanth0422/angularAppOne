@@ -15,16 +15,19 @@ export class ChartsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+this.graphInitialise();
+  }
+  ngOnChanges() {
+    console.log('in list ng changes',this.employeeData);
+    this.graphInitialise();
+
+  }
+  graphInitialise(){
     let chartData = this.employeeData.map((obj, i) => {
       return (
         [obj.userid, i + 1]
       )
     })
-
-
-
-
-
 
     this.chartOptions = {
       chart: {

@@ -22,4 +22,7 @@ export class DialogService {
       })
       .afterClosed();
   }
+  editdialog(){
+    
+  }
 }

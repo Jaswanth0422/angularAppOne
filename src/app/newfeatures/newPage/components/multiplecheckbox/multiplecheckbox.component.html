@@ -1,0 +1,6 @@
+<p>multiplecheckbox works!</p>
+<form [formGroup]="checkboxForm" (ngSubmit)="onSubmit()">
+<div *ngFor="let item of items">
+  <input type="checkbox" [formControl]=”item”/>{{item.label}}
+</div>
+</form>

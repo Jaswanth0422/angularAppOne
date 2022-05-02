@@ -19,6 +19,7 @@ export class EmployeeListComponent implements OnInit {
   removeEmployeeKey = '';
 
   ngOnInit(): void {
+
     this.employeeService.getEmployeesList().subscribe(data => {
       let listtotal = [];
       this.employeeList = [];
@@ -29,6 +30,7 @@ export class EmployeeListComponent implements OnInit {
       })
 
       this.employeeList = listtotal;
+console.log('ngonit employeelist',this.employeeList);
 
       this.employeeList.forEach(item => {
 
@@ -53,6 +55,7 @@ export class EmployeeListComponent implements OnInit {
     this.showRemoveModal = true;
     this.removeEmployeeKey = employeeKey;
     // this.employeeService.removeEmployee(employeeKey);
+    // this.employeeList=[...this.employeeList] 
   }
   closeModal(value) {
     this.showRemoveModal = value;

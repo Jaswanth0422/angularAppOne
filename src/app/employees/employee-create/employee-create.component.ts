@@ -70,7 +70,9 @@ export class EmployeeCreateComponent implements OnInit {
     };
 
     const result = this.employeeService.createEmployee(employee)
-    this.dialogRef.close()
+    console.log('after save',this.dialogRef);
+
+    this.dialogRef&& (this.dialogRef.close())
     await result === 'successfully created employee' ? this.router.navigate(['/employees/listEmployees']) : ''
   }
   departmentChange($event) {
